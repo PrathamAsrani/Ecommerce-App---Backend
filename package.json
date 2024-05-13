@@ -1,0 +1,19 @@
+{
+  "name": "ecommerceapp",
+  "version": "1.0.0",
+  "main": "Server.js",
+  "scripts": {
+    "start": "npm Server.js",
+    "test": "nodemon Server.js"
+  },
+  "keywords": [],
+  "author": "Pratham Asrani",
+  "license": "ISC",
+  "description": "Ecommerce app by Pratham Asrani",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.1",
+    "mongoose": "^8.3.4"
+  }
+}
