@@ -4,17 +4,17 @@ const { hashPassword } = require('../helper/authHelper.js');
 module.exports.registerController = async (req, res) => {
     try {
         const { name, email, password, phone, address, role } = req.body;
-        if (!name) return res.status(400).send({ error: `Name is required` });
-        if (!email) return res.status(400).send({ error: `Email is required` });
-        if (!password) return res.status(400).send({ error: `Password is required` });
-        if (!phone) return res.status(400).send({ error: `Phone number is required` });
-        if (!address) return res.status(400).send({ error: `address is required` });
+        if (!name) return res.status(400).send({ message: `Name is required` });
+        if (!email) return res.status(400).send({ message: `Email is required` });
+        if (!password) return res.status(400).send({ message: `Password is required` });
+        if (!phone) return res.status(400).send({ message: `Phone number is required` });
+        if (!address) return res.status(400).send({ message: `address is required` });
 
         // existing user
         const existingUser = await userModal.findOne({ email });
         if (existingUser) {
             return res.status(200).send({
-                status: true,
+                status: false,
                 message: `Already registered email please login`
             })
         }
