@@ -24,8 +24,11 @@ module.exports.loginController = async (req, res) => {
             success: true,
             message: `Logged In successfully`,
             user: {
+                id: user.id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                phone: user.phone,
+                address: user.address
             },
             token
         })
