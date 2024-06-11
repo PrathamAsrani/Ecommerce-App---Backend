@@ -3,7 +3,7 @@ const { hashPassword } = require('../helper/authHelper.js');
 
 module.exports.forgotPasswordController = async (req, res) => {
     try{
-        const [email, answer, newPassword] = req.body;
+        const {email, answer, newPassword} = req.body;
         if (!email) return res.status(404).send({ error: `Email is required` });
         if (!answer) return res.status(404).send({ error: `Answer is required` });
         if (!newPassword) return res.status(404).send({ error: `New Password is required` });
