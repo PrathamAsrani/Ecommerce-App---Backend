@@ -4,10 +4,13 @@ const {registerController} = require('../controllers/registerController.js');
 const {loginController} = require('../controllers/loginController.js');
 const {testController} = require('../controllers/testController.js');
 const {requireSignIn, isAdmin} = require('../middlewares/authMiddleware.js');
+const { forgotPasswordController } = require('../controllers/forgotPasswordController.js');
 
 router.post('/register', registerController);
 
 router.post('/login', loginController);
+
+router.post('/forgot-password', forgotPasswordController);
 
 router.get('/test', requireSignIn, isAdmin, testController);
 
