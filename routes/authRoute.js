@@ -21,7 +21,7 @@ router.get('/user-auth', requireSignIn, (req, res) => {
     });
 });
 
-router.get('/admin-auth', requireSignIn, (req, res) => {
+router.get('/admin-auth', requireSignIn, isAdmin, (req, res) => {
     res.status(200).send({
         success: true,
         ok: true
