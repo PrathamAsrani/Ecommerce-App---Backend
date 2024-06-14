@@ -16,8 +16,16 @@ router.get('/test', requireSignIn, isAdmin, testController);
 
 router.get('/user-auth', requireSignIn, (req, res) => {
     res.status(200).send({
-        success:true
+        success:true,
+        ok: true
     });
 });
+
+router.get('/admin-auth', requireSignIn, (req, res) => {
+    res.status(200).send({
+        success: true,
+        ok: true
+    });
+})
 
 module.exports = router; 
