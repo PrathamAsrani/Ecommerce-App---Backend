@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const authRoute = require('./routes/authRoute.js');
 const categoryRoute = require('./routes/categoryRoute.js');
+const productRoute = require('./routes/productRoute.js');
 
 // config env
 dotenv.config();
