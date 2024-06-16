@@ -10,7 +10,7 @@ module.exports.createCategoryController = async (req, res) => {
         if (existingCategory) {
             return res.status(200).send({
                 success: false,
-                message: "Category us already registered",
+                message: "Category is already registered",
             });
         }
 
