@@ -1,6 +1,6 @@
 const productModal = require('../modals/productModel.js');
-import fs from 'fs';
-import slugify from 'slugify';
+const fs = require('fs');
+const slugify = require('slugify');
 
 module.exports.createProductController = async (req, res) => {
     try {
@@ -26,7 +26,7 @@ module.exports.createProductController = async (req, res) => {
         const products = new productModal({...req.fields, slug: slugify(name)});
         if(photo){
             products.photo.data = fs.readFileSync(photo.path);
-            products.contentType = photo.type;
+            products.photo.contentType = photo.type;
         }
         await products.save();
         res.status(201).send({

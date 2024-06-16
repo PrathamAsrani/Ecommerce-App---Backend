@@ -1,5 +1,4 @@
 const categoryModal = require('../modals/categoryModel');
-const slugify = require('slugify');
 
 module.exports.deleteCategoryController = async (req, res) => {
     try {
