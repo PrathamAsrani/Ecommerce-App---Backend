@@ -11,7 +11,7 @@ module.exports.updateCategoryController = async (req, res) => {
         const existingCategory = await categoryModal.findByIdAndUpdate(id, { name, slug: slugify(name) }, { new: true });
 
         res.status(200).send({
-            succes: true,
+            success: true,
             message: `${name} category updated successfully`,
             existingCategory
         });
