@@ -4,7 +4,7 @@ module.exports.categoryController = async (req, res) => {
     try {
         const category = await categoryModal.find({});
         res.status(200).send({
-            succes: true,
+            success: true,
             message: `All categories fetched`,
             category
         });

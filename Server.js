@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const connectDB = require('./db_config/db.js');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
@@ -8,13 +7,19 @@ const authRoute = require('./routes/authRoute.js');
 const categoryRoute = require('./routes/categoryRoute.js');
 const productRoute = require('./routes/productRoute.js');
 
-// config env
+//configure env
 dotenv.config();
 
-// middlewares
-app.use(cors({ origin: '*' }));
+//databse config
+connectDB();
+
+//rest object
+const app = express();
+
+//middelwares
+app.use(cors());
 app.use(express.json());
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 // routes
 app.use("/api/v1/auth", authRoute);
