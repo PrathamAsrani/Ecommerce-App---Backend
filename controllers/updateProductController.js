@@ -6,8 +6,9 @@ module.exports.updateProductController = async (req, res) => {
     try {
         const { name, description, price, category, quantity, shipping } = req.fields;
         const { photo } = req.files;
-
         // validation
+        console.log(name, description, price, category, quantity);
+        console.log(photo);
         switch (true) {
             case !name:
                 return res.status(404).send({ error: `Name is required` });
@@ -19,10 +20,7 @@ module.exports.updateProductController = async (req, res) => {
                 return res.status(404).send({ error: `Category is required` });
             case !quantity:
                 return res.status(404).send({ error: `Quantity is required` });
-            case !photo && photo.size > 1000000:
-                return res.status(404).send({ error: `Photo is required, and should be less than 1mb` });
         }
-
         const products = await productModal.findByIdAndUpdate(req.params.pid,
             { ...req.fields, slug: slugify(name) },
             { new: true }
