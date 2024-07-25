@@ -3,6 +3,8 @@ const productModal = require('../modals/productModel.js')
 module.exports.productFiltersController = async(req, res) => {
     try{
         const {checked, radio} = req.body
+        console.log(checked);
+        console.log(radio);
         let args = {}
         if(checked.length > 0)
             args.category = checked

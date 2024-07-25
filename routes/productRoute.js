@@ -22,6 +22,6 @@ router.get('/product-photo/:pid', productPhotoController);
 
 router.delete('/product-delete/:pid', deleteProductController);
 
-router.get('/product-filters', productFiltersController);
+router.post('/product-filters', productFiltersController);
 
 module.exports = router;
