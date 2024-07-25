@@ -8,6 +8,8 @@ const { productPhotoController } = require('../controllers/productPhotoControlle
 const { deleteProductController } = require('../controllers/deleteProductController');
 const { updateProductController } = require('../controllers/updateProductController');
 const { productFiltersController } = require('../controllers/productFiltersController');
+const { productCountController } = require('../controllers/productCountController');
+const { productListController } = require('../controllers/productListController');
 const router = express.Router();
 
 router.post('/create-product', requireSignIn, isAdmin, formidableMiddleware(), createProductController);
@@ -23,5 +25,9 @@ router.get('/product-photo/:pid', productPhotoController);
 router.delete('/product-delete/:pid', deleteProductController);
 
 router.post('/product-filters', productFiltersController);
+
+router.get('/product-count', productCountController);
+
+router.get('/product-list/:page', productListController)
 
 module.exports = router;
