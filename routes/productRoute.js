@@ -10,6 +10,7 @@ const { updateProductController } = require('../controllers/updateProductControl
 const { productFiltersController } = require('../controllers/productFiltersController');
 const { productCountController } = require('../controllers/productCountController');
 const { productListController } = require('../controllers/productListController');
+const { searchProductController } = require('../controllers/searchProductController');
 const router = express.Router();
 
 router.post('/create-product', requireSignIn, isAdmin, formidableMiddleware(), createProductController);
@@ -28,6 +29,8 @@ router.post('/product-filters', productFiltersController);
 
 router.get('/product-count', productCountController);
 
-router.get('/product-list/:page', productListController)
+router.get('/product-list/:page', productListController);
+
+router.get('/search/:keyword', searchProductController);
 
 module.exports = router;
