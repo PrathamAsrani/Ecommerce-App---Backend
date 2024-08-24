@@ -2,7 +2,12 @@ const productModal = require('../modals/productModel.js');
 
 module.exports.getSingleProductsController = async (req, res) => {
     try {
-        const product = await productModal.findOne({slug: req.params.slug}).select("-photo").populate("category");
+        console.log(req.params.slug)
+        const product = await productModal.findOne(
+            {name: req.params.slug}
+        )
+        .select("-photo")
+        .populate("category");
         res.status(200).send({
             success: true,
             message: "Single product fetched successfully",
